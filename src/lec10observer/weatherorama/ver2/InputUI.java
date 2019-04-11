@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class InputUI {
 
-    public void receive(WeatherData weatherData, OceanData oceanData) {
+    public void receive(WeatherData weatherData, OceanData oceanData, PollutionData pollutionData) {
 
         Scanner in = new Scanner(System.in);
 
@@ -24,13 +24,17 @@ public class InputUI {
             // to "notify" all observers (via calling an update() method)
             weatherData.setMeasurement(temp, humid, pressure);
 
-            System.out.print("Wave Height: ");
-            double height = Double.parseDouble(in.nextLine());
-            oceanData.setWaveHeight(height);
-
+            System.out.print("Wave Heigh: ");
+            double wave = Double.parseDouble(in.nextLine());
+            oceanData.setWaveHeight(wave);
             System.out.print("Wind: ");
             double wind = Double.parseDouble(in.nextLine());
             oceanData.setWindGust(wind);
+
+            System.out.println("Pollution: ");
+            String poll = in.nextLine();
+            pollutionData.setPollution(poll);
+
         }
     }
 }
